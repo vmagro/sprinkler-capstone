@@ -18,13 +18,15 @@ class Installation(ndb.Model):
         return InstallationMessage(key=self.key.urlsafe(),
                                    name=self.name,
                                    latitude=self.location.lat,
-                                   longitude=self.location.lon)
+                                   longitude=self.location.lon,
+                                   max_time=self.max_time)
 
     @classmethod
     def from_create_message(cls, message, owner):
         return Installation(name=message.name,
                             owner=owner,
-                            location=ndb.GeoPt(message.latitude, message.longitude))
+                            location=ndb.GeoPt(message.latitude, message.longitude),
+                            max_time=message.max_time)
 
 
 class InstallationMessage(messages.Message):
@@ -32,6 +34,7 @@ class InstallationMessage(messages.Message):
     name = messages.StringField(2)
     latitude = messages.FloatField(3, variant=messages.Variant.DOUBLE)
     longitude = messages.FloatField(4, variant=messages.Variant.DOUBLE)
+    max_time = messages.IntegerField(5, variant=messages.Variant.INT32)
 
 
 class InstallationsList(messages.Message):
