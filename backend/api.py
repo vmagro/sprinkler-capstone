@@ -37,8 +37,7 @@ class SprinklerApi(remote.Service):
                       name='installation.create', path='installation', http_method='POST')
     def installation_create(self, request):
         current_user = endpoints.get_current_user()
-        location = ndb.GeoPt(request.latitude, request.longitude)
-        installation = Installation(location=location, owner=current_user)
+        installation = Installation.from_create_message(request, current_user)
         installation.put()
         return installation.to_message()
 

@@ -4,6 +4,7 @@ from protorpc import messages
 
 class Installation(ndb.Model):
     location = ndb.GeoPtProperty()
+    name = ndb.StringProperty()
     owner = ndb.UserProperty()
 
     # maximum time in seconds between watering
@@ -15,14 +16,22 @@ class Installation(ndb.Model):
 
     def to_message(self):
         return InstallationMessage(key=self.key.urlsafe(),
+                                   name=self.name,
                                    latitude=self.location.lat,
                                    longitude=self.location.lon)
+
+    @classmethod
+    def from_create_message(cls, message, owner):
+        return Installation(name=message.name,
+                            owner=owner,
+                            location=ndb.GeoPt(message.latitude, message.longitude))
 
 
 class InstallationMessage(messages.Message):
     key = messages.StringField(1)
-    latitude = messages.FloatField(2, variant=messages.Variant.DOUBLE)
-    longitude = messages.FloatField(3, variant=messages.Variant.DOUBLE)
+    name = messages.StringField(2)
+    latitude = messages.FloatField(3, variant=messages.Variant.DOUBLE)
+    longitude = messages.FloatField(4, variant=messages.Variant.DOUBLE)
 
 
 class InstallationsList(messages.Message):
