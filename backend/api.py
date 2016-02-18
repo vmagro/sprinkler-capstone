@@ -5,6 +5,8 @@ from protorpc import messages
 from protorpc import remote
 
 from model.Installation import Installation, InstallationMessage, InstallationsList
+from model.ScheduleEntry import ScheduleEntry, ScheduleMessage, ScheduleEntryMessage, ManualScheduleRequest, \
+    schedule_entries_to_message
 
 package = 'Sprinkler'
 
@@ -62,6 +64,34 @@ class SprinklerApi(remote.Service):
             message = installation.to_message()
             installation.key.delete()
             return message
+        except:
+            raise endpoints.NotFoundException()
+
+    @endpoints.method(request_message=KEY_RESOURCE, response_message=ScheduleMessage,
+                      name='schedule.get', path='schedule/{key}', http_method='GET')
+    def schedule_get(self, request):
+        try:
+            installation = ndb.Key(urlsafe=request.key).get()
+            if installation.owner != endpoints.get_current_user():
+                raise endpoints.UnauthorizedException()
+            # get schedule
+            schedule = ScheduleEntry.query_schedule(installation.key).fetch(10)
+            return schedule_entries_to_message(schedule)
+        except:
+            raise endpoints.NotFoundException()
+
+    @endpoints.method(request_message=ManualScheduleRequest, response_message=ScheduleEntryMessage,
+                      name='schedule.manual', path='schedule', http_method='POST')
+    def schedule_manual(self, request):
+        try:
+            installation = ndb.Key(urlsafe=request.installation_key).get()
+            if installation.owner != endpoints.get_current_user():
+                raise endpoints.UnauthorizedException()
+
+            # add schedule entry
+            entry = ScheduleEntry.from_manual_message(request)
+            entry.put()
+            return entry.to_message()
         except:
             raise endpoints.NotFoundException()
 
