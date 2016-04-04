@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9A2137391CA1F7BD00A4973C /* BLEManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A2137381CA1F7BD00A4973C /* BLEManager.swift */; };
+		9A21373B1CA1FA7100A4973C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A21373A1CA1FA7100A4973C /* CoreBluetooth.framework */; };
 		9AB1E4531CA08F3F0068DD44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E4521CA08F3F0068DD44 /* AppDelegate.swift */; };
 		9AB1E4551CA08F3F0068DD44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E4541CA08F3F0068DD44 /* ViewController.swift */; };
 		9AB1E4581CA08F3F0068DD44 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9AB1E4561CA08F3F0068DD44 /* Main.storyboard */; };
@@ -15,6 +17,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		9A2137381CA1F7BD00A4973C /* BLEManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BLEManager.swift; sourceTree = "<group>"; };
+		9A21373A1CA1FA7100A4973C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
 		9AB1E44F1CA08F3F0068DD44 /* Sprinkler Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sprinkler Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9AB1E4521CA08F3F0068DD44 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9AB1E4541CA08F3F0068DD44 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -29,6 +33,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9A21373B1CA1FA7100A4973C /* CoreBluetooth.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -38,6 +43,7 @@
 		9AB1E4461CA08F3F0068DD44 = {
 			isa = PBXGroup;
 			children = (
+				9A21373A1CA1FA7100A4973C /* CoreBluetooth.framework */,
 				9AB1E4511CA08F3F0068DD44 /* Sprinkler Controller */,
 				9AB1E4501CA08F3F0068DD44 /* Products */,
 			);
@@ -60,6 +66,7 @@
 				9AB1E4591CA08F3F0068DD44 /* Assets.xcassets */,
 				9AB1E45B1CA08F3F0068DD44 /* LaunchScreen.storyboard */,
 				9AB1E45E1CA08F3F0068DD44 /* Info.plist */,
+				9A2137381CA1F7BD00A4973C /* BLEManager.swift */,
 			);
 			path = "Sprinkler Controller";
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9AB1E4551CA08F3F0068DD44 /* ViewController.swift in Sources */,
+				9A2137391CA1F7BD00A4973C /* BLEManager.swift in Sources */,
 				9AB1E4531CA08F3F0068DD44 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -288,6 +296,7 @@
 				9AB1E4631CA08F3F0068DD44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
