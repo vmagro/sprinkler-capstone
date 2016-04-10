@@ -7,6 +7,9 @@ module.exports = {
 			cb(snapshot.val());
 		});
 	},
+	setManual: function (zone, val) {
+		root.child('manual/' + zone).set(val);
+	},
 	addHistoryEntry: function(zones, duration) {
 		root.child('history').push().set({
 			zones: zones,
@@ -27,10 +30,9 @@ module.exports = {
 			cb(snapshot.val().time);
 		});
 	},
-	config: {
-		maxGap: 5*24*60*60*1000,
-		idealGap: 3*24*60*60*1000,
-		rainCutoff: 0.5,
-		zoneDuration: 1000
+	config: function (cb) {
+		root.child('config').once('value', function (snapshot) {
+			cb(snapshot.val());
+		});
 	}
 };
