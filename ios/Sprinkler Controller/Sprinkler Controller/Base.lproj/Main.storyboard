@@ -95,6 +95,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="6oV-ZW-Q0g">
                                         <rect key="frame" x="72.5" y="47" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="ztB-fA-lKc"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zone 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1zn-de-XRN">
                                         <rect key="frame" x="20" y="92" width="48.5" height="19"/>
@@ -104,6 +107,9 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="1nT-75-oDa">
                                         <rect key="frame" x="72" y="86" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="YgN-dr-v7o"/>
+                                        </connections>
                                     </switch>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zone 3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ken-4b-3n4">
                                         <rect key="frame" x="20" y="131" width="48.5" height="19"/>
@@ -119,9 +125,15 @@
                                     </label>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="d3y-sK-7S0">
                                         <rect key="frame" x="72" y="164" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="B39-S6-cRd"/>
+                                        </connections>
                                     </switch>
                                     <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="FZz-Gv-gdY">
                                         <rect key="frame" x="72" y="125" width="51" height="31"/>
+                                        <connections>
+                                            <action selector="switchChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="CAN-Nw-6LZ"/>
+                                        </connections>
                                     </switch>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -182,6 +194,10 @@
                     <connections>
                         <outlet property="lastWatering" destination="5Ay-OW-0gK" id="zzn-ax-oD6"/>
                         <outlet property="nextWatering" destination="Fmi-Ja-uqI" id="CFF-i2-eH0"/>
+                        <outletCollection property="manualToggles" destination="6oV-ZW-Q0g" collectionClass="NSMutableArray" id="R1C-Vk-FeT"/>
+                        <outletCollection property="manualToggles" destination="1nT-75-oDa" collectionClass="NSMutableArray" id="uMr-08-G5h"/>
+                        <outletCollection property="manualToggles" destination="FZz-Gv-gdY" collectionClass="NSMutableArray" id="cgi-5O-h65"/>
+                        <outletCollection property="manualToggles" destination="d3y-sK-7S0" collectionClass="NSMutableArray" id="knY-wO-i4W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
