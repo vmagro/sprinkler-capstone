@@ -4,6 +4,7 @@ const weather = require('./weather');
 const water = require('./water');
 
 avr.setZone(1, true);
+connector.addHistoryEntry([1,2], 1000);
 
 connector.onManualControl(function () {
 	console.log(arguments);
