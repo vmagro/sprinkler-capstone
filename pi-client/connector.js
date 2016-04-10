@@ -29,8 +29,8 @@ module.exports = {
 	},
 	config: {
 		maxGap: 5*24*60*60*1000,
-		numZones: 4,
 		idealGap: 3*24*60*60*1000,
-		rainCutoff: 0.5
+		rainCutoff: 0.5,
+		zoneDuration: 1000
 	}
 };

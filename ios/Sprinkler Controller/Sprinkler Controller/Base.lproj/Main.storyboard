@@ -274,6 +274,17 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watering Duration (minutes)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-3g-qdr">
+                                <rect key="frame" x="20" y="273" width="215" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="minutes" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gw3-i2-ckb">
+                                <rect key="frame" x="20" y="302" width="72.5" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -281,13 +292,17 @@
                             <constraint firstItem="uON-t0-pY2" firstAttribute="leading" secondItem="JA6-9Y-TGD" secondAttribute="leading" id="2wd-Y7-4mK"/>
                             <constraint firstItem="JA6-9Y-TGD" firstAttribute="top" secondItem="1Qd-sL-Sf4" secondAttribute="bottom" constant="8" id="6Jv-72-wAQ"/>
                             <constraint firstItem="1Qd-sL-Sf4" firstAttribute="leading" secondItem="dnF-xg-Sg1" secondAttribute="leading" id="6ok-hK-ibW"/>
+                            <constraint firstItem="gw3-i2-ckb" firstAttribute="leading" secondItem="dWM-3g-qdr" secondAttribute="leading" id="F2e-Xm-CeW"/>
                             <constraint firstItem="bxw-ZI-yDM" firstAttribute="leading" secondItem="njA-5M-Jwp" secondAttribute="leading" id="Fbg-6A-wBK"/>
                             <constraint firstItem="dnF-xg-Sg1" firstAttribute="top" secondItem="bxw-ZI-yDM" secondAttribute="bottom" constant="8" id="Qt1-Dc-fpU"/>
                             <constraint firstItem="njA-5M-Jwp" firstAttribute="top" secondItem="tlZ-zi-zAl" secondAttribute="bottom" constant="8" id="VaD-dW-H0v"/>
                             <constraint firstItem="uON-t0-pY2" firstAttribute="top" secondItem="JA6-9Y-TGD" secondAttribute="bottom" constant="8" id="VeT-p7-bSY"/>
                             <constraint firstItem="1Qd-sL-Sf4" firstAttribute="top" secondItem="dnF-xg-Sg1" secondAttribute="bottom" constant="8" id="WY5-f9-l1v"/>
                             <constraint firstItem="dnF-xg-Sg1" firstAttribute="leading" secondItem="njA-5M-Jwp" secondAttribute="leading" id="Wyf-Pw-40v"/>
+                            <constraint firstItem="dWM-3g-qdr" firstAttribute="leading" secondItem="JA6-9Y-TGD" secondAttribute="leading" id="XdK-Q3-KRe"/>
                             <constraint firstItem="JA6-9Y-TGD" firstAttribute="leading" secondItem="1Qd-sL-Sf4" secondAttribute="leading" id="Xlo-e1-PEv"/>
+                            <constraint firstItem="dWM-3g-qdr" firstAttribute="top" secondItem="uON-t0-pY2" secondAttribute="bottom" constant="8" id="gGl-ac-qyX"/>
+                            <constraint firstItem="gw3-i2-ckb" firstAttribute="top" secondItem="dWM-3g-qdr" secondAttribute="bottom" constant="8" id="jYy-fs-uVJ"/>
                             <constraint firstAttribute="leadingMargin" secondItem="njA-5M-Jwp" secondAttribute="leading" id="zaC-qS-cav"/>
                         </constraints>
                     </view>

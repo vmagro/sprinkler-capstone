@@ -5,7 +5,7 @@ const connector = require('./connector.js');
 module.exports = {
 	start: function () {
 		const config = connector.config;
-		for (var i=0; i < config.numZones; i++) {
+		for (var i=0; i < 4; i++) {
 			setTimeout(avr.setZone.bind(null, i, true), i * config.zoneDuration);
 			setTimeout(avr.setZone.bind(null, i, false), i * config.zoneDuration + config.zoneDuration);
 		}
