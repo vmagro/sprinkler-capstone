@@ -229,10 +229,10 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--View Controller-->
+        <!--Settings View Controller-->
         <scene sceneID="2Y4-fI-rlx">
             <objects>
-                <viewController id="aZl-ZP-SUE" sceneMemberID="viewController">
+                <viewController id="aZl-ZP-SUE" customClass="SettingsViewController" customModule="Sprinkler_Controller" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="tlZ-zi-zAl"/>
                         <viewControllerLayoutGuide type="bottom" id="Zka-Yf-TbN"/>
@@ -251,6 +251,9 @@
                                 <rect key="frame" x="20" y="101" width="76" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="settingChanged:" destination="aZl-ZP-SUE" eventType="editingDidEnd" id="EXo-ch-iKK"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ideal Time Between Watering (hr)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dnF-xg-Sg1">
                                 <rect key="frame" x="20" y="139" width="254.5" height="21"/>
@@ -262,6 +265,9 @@
                                 <rect key="frame" x="20" y="168" width="80" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="settingChanged:" destination="aZl-ZP-SUE" eventType="editingDidEnd" id="bmA-cH-3wV"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rain Abort Cutoff (%)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JA6-9Y-TGD">
                                 <rect key="frame" x="20" y="206" width="162" height="21"/>
@@ -273,6 +279,9 @@
                                 <rect key="frame" x="20" y="235" width="94.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="settingChanged:" destination="aZl-ZP-SUE" eventType="editingDidEnd" id="Rar-24-vKd"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Watering Duration (minutes)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dWM-3g-qdr">
                                 <rect key="frame" x="20" y="273" width="215" height="21"/>
@@ -284,6 +293,9 @@
                                 <rect key="frame" x="20" y="302" width="72.5" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="settingChanged:" destination="aZl-ZP-SUE" eventType="editingDidEnd" id="ZgC-fk-NnJ"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -307,6 +319,12 @@
                         </constraints>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="idealGap" destination="1Qd-sL-Sf4" id="aov-sB-7n2"/>
+                        <outlet property="maxGap" destination="bxw-ZI-yDM" id="VVe-dk-mCM"/>
+                        <outlet property="rainCutoff" destination="uON-t0-pY2" id="Wap-95-VRa"/>
+                        <outlet property="zoneDuration" destination="gw3-i2-ckb" id="4mM-kO-5vU"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xzN-E6-Ks6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

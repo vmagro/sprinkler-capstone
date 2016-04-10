@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		2BC50ECD8FBAB94A2AF31715 /* libPods-Sprinkler Controller.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0666B4A8E1CFC773F2235BA /* libPods-Sprinkler Controller.a */; };
 		9A21373B1CA1FA7100A4973C /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9A21373A1CA1FA7100A4973C /* CoreBluetooth.framework */; };
+		9A496BD91CBB068B003627C2 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A496BD81CBB068B003627C2 /* SettingsViewController.swift */; };
 		9A6ACEBC1CBAF3DF00FF788C /* ProgramViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A6ACEBB1CBAF3DF00FF788C /* ProgramViewController.swift */; };
 		9AB1E4531CA08F3F0068DD44 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E4521CA08F3F0068DD44 /* AppDelegate.swift */; };
 		9AB1E4551CA08F3F0068DD44 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9AB1E4541CA08F3F0068DD44 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* Begin PBXFileReference section */
 		5F5CD291B16B66E8A04BE968 /* Pods-Sprinkler Controller.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sprinkler Controller.release.xcconfig"; path = "Pods/Target Support Files/Pods-Sprinkler Controller/Pods-Sprinkler Controller.release.xcconfig"; sourceTree = "<group>"; };
 		9A21373A1CA1FA7100A4973C /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		9A496BD81CBB068B003627C2 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		9A6ACEB81CBAED8100FF788C /* Sprinkler Controller-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Sprinkler Controller-Bridging-Header.h"; sourceTree = "<group>"; };
 		9A6ACEBB1CBAF3DF00FF788C /* ProgramViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProgramViewController.swift; sourceTree = "<group>"; };
 		9AB1E44F1CA08F3F0068DD44 /* Sprinkler Controller.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sprinkler Controller.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -85,6 +87,7 @@
 				9AB1E45E1CA08F3F0068DD44 /* Info.plist */,
 				9A6ACEB81CBAED8100FF788C /* Sprinkler Controller-Bridging-Header.h */,
 				9A6ACEBB1CBAF3DF00FF788C /* ProgramViewController.swift */,
+				9A496BD81CBB068B003627C2 /* SettingsViewController.swift */,
 			);
 			path = "Sprinkler Controller";
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				9AB1E4551CA08F3F0068DD44 /* ViewController.swift in Sources */,
 				9AB1E4531CA08F3F0068DD44 /* AppDelegate.swift in Sources */,
 				9A6ACEBC1CBAF3DF00FF788C /* ProgramViewController.swift in Sources */,
+				9A496BD91CBB068B003627C2 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
