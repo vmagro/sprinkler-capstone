@@ -187,15 +187,15 @@
                                 </variation>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8m-Fn-4a3">
-                                <rect key="frame" x="231" y="706" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="218" y="706" width="59" height="30"/>
+                                <state key="normal" title="Program"/>
                                 <connections>
                                     <segue destination="fc5-Bf-21h" kind="show" id="u8n-vB-wTW"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1yb-nW-WaN">
-                                <rect key="frame" x="32" y="706" width="46" height="30"/>
-                                <state key="normal" title="Button"/>
+                                <rect key="frame" x="32" y="706" width="57" height="30"/>
+                                <state key="normal" title="Settings"/>
                                 <connections>
                                     <segue destination="aZl-ZP-SUE" kind="show" id="Lzx-fq-jtn"/>
                                 </connections>
@@ -229,7 +229,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
         </scene>
-        <!--Settings View Controller-->
+        <!--Settings-->
         <scene sceneID="2Y4-fI-rlx">
             <objects>
                 <viewController id="aZl-ZP-SUE" customClass="SettingsViewController" customModule="Sprinkler_Controller" customModuleProvider="target" sceneMemberID="viewController">
@@ -318,6 +318,7 @@
                             <constraint firstAttribute="leadingMargin" secondItem="njA-5M-Jwp" secondAttribute="leading" id="zaC-qS-cav"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="sti-AK-sVa"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="idealGap" destination="1Qd-sL-Sf4" id="aov-sB-7n2"/>
@@ -330,7 +331,7 @@
             </objects>
             <point key="canvasLocation" x="887" y="1412"/>
         </scene>
-        <!--Program View Controller-->
+        <!--Program-->
         <scene sceneID="Jsa-V3-idx">
             <objects>
                 <viewController id="fc5-Bf-21h" customClass="ProgramViewController" customModule="Sprinkler_Controller" customModuleProvider="target" sceneMemberID="viewController">
@@ -431,6 +432,7 @@
                             <constraint firstItem="mZw-59-baS" firstAttribute="leading" secondItem="V7F-7H-cVc" secondAttribute="leadingMargin" constant="16" id="lTN-4v-aIi"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Program" id="7XC-0u-Y9u"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x68-9p-oPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
