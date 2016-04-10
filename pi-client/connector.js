@@ -14,6 +14,9 @@ module.exports = {
 			duration: duration
 		});
 	},
+	addScheduledEntry: function (time) {
+		root.child('schedule').push().setWithPriority(time, Firebase.ServerValue.TIMESTAMP);
+	},
 	location: function(cb) {
 		root.child('location').once('value', function (snapshot) {
 			cb(snapshot.val());
