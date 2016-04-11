@@ -2,12 +2,14 @@ const connector = require('./connector');
 const avr = require('./avr');
 const weather = require('./weather');
 const water = require('./water');
+const chalk = require('chalk');
 
-avr.setZone(1, true);
-connector.addHistoryEntry([1,2], 1000);
+// connector.addHistoryEntry([1,2], 1000);
 
-connector.onManualControl(function () {
-	console.log(arguments);
+connector.onManualControl(function (zones) {
+	for (var i=0; i < zones.length; i++) {
+		avr.setZone(i, zones[i] === 'on');
+	}
 });
 
 connector.location(function (loc) {
