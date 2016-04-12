@@ -1,4 +1,5 @@
 const chalk = require('chalk');
+const moment = require('moment');
 const avr = require('./avr');
 const connector = require('./connector.js');
 

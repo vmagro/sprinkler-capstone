@@ -41,7 +41,7 @@ module.exports = {
 			cb(snapshot.val());
 		});
 	},
-	schedule: function (cb) {
+	schedule: function (day, cb) {
 		root.child('schedule').once('value', function (snapshot) {
 			const schedule = snapshot.val();
 			cb(schedule);
