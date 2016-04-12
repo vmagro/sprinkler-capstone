@@ -1,3 +1,4 @@
+'use strict';
 const moment = require('moment');
 const Firebase = require('firebase');
 const root = new Firebase('https://vivid-fire-6945.firebaseio.com/');
@@ -38,6 +39,12 @@ module.exports = {
 	config: function (cb) {
 		root.child('config').once('value', function (snapshot) {
 			cb(snapshot.val());
+		});
+	},
+	schedule: function (cb) {
+		root.child('schedule').once('value', function (snapshot) {
+			const schedule = snapshot.val();
+			cb(schedule);
 		});
 	}
 };

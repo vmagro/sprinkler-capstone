@@ -14,7 +14,7 @@ connector.onManualControl(function (zones) {
 
 connector.location(function (loc) {
 	console.log('got location ' + JSON.stringify(loc));
-	setInterval(function () {
+	setTimeout(function () {
 		weather(loc).then(function (weather) {
 			connector.lastTime(function (lastTime) {
 				console.log(weather);
@@ -24,5 +24,5 @@ connector.location(function (loc) {
 				}
 			});
 		});
-	}, 10000);
+	}, 100);
 });
