@@ -344,7 +344,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mZw-59-baS">
-                                <rect key="frame" x="36" y="84" width="342" height="466"/>
+                                <rect key="frame" x="28" y="84" width="358" height="466"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add Schedule" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dR3-tZ-kBb">
                                         <rect key="frame" x="8" y="8" width="106.5" height="21"/>
@@ -353,7 +353,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MfI-xg-WLJ">
-                                        <rect key="frame" x="8" y="32" width="334" height="128"/>
+                                        <rect key="frame" x="8" y="32" width="350" height="128"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="WGR-yy-9Q4"/>
                                         </constraints>
@@ -369,7 +369,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="0CI-YM-wos">
-                                        <rect key="frame" x="8" y="183" width="326" height="216"/>
+                                        <rect key="frame" x="8" y="183" width="342" height="216"/>
                                         <date key="date" timeIntervalSinceReferenceDate="482014970.08066702">
                                             <!--2016-04-10 21:02:50 +0000-->
                                         </date>
@@ -386,8 +386,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-Wk-uvS">
-                                        <rect key="frame" x="156" y="436" width="30" height="30"/>
+                                        <rect key="frame" x="164" y="436" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
+                                        <connections>
+                                            <action selector="didClickAdd:" destination="fc5-Bf-21h" eventType="primaryActionTriggered" id="tGi-xs-WEZ"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
@@ -428,12 +431,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="mZw-59-baS" firstAttribute="top" secondItem="vBD-7W-45y" secondAttribute="bottom" constant="20" id="GUb-hN-fbU"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="mZw-59-baS" secondAttribute="trailing" constant="16" id="dHN-iA-xGs"/>
-                            <constraint firstItem="mZw-59-baS" firstAttribute="leading" secondItem="V7F-7H-cVc" secondAttribute="leadingMargin" constant="16" id="lTN-4v-aIi"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="mZw-59-baS" secondAttribute="trailing" constant="8" id="dHN-iA-xGs"/>
+                            <constraint firstItem="mZw-59-baS" firstAttribute="leading" secondItem="V7F-7H-cVc" secondAttribute="leadingMargin" constant="8" id="lTN-4v-aIi"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Program" id="7XC-0u-Y9u"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
+                    <connections>
+                        <outlet property="datePicker" destination="0CI-YM-wos" id="DRD-6P-nK2"/>
+                        <outlet property="duration" destination="wcM-el-jXC" id="cGb-Lt-oXE"/>
+                        <outlet property="zonePicker" destination="MfI-xg-WLJ" id="WwR-cR-ax8"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x68-9p-oPQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -12,6 +12,10 @@ class ProgramViewController: UIViewController, UIPickerViewDataSource, UIPickerV
 
     var root: Firebase?
     
+    @IBOutlet weak var zonePicker: UIPickerView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var duration: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -47,4 +51,11 @@ class ProgramViewController: UIViewController, UIPickerViewDataSource, UIPickerV
     }
     */
 
+    @IBAction func didClickAdd(sender: AnyObject) {
+        let zoneChoice = zonePicker.selectedRowInComponent(0)
+        let day = datePicker.calendar.component(.Weekday, fromDate: datePicker.date) - 1
+        let time = datePicker.calendar.component(.Hour, fromDate: datePicker.date) * 60 + datePicker.calendar.component(.Minute, fromDate: datePicker.date)
+        let duration = Double(self.duration.text!)! * 60 * 1000;
+        print("Clicked add", zoneChoice, day, time, duration)
+    }
 }
