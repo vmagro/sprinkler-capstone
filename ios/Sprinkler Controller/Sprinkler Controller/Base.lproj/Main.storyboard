@@ -652,10 +652,10 @@
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Fwl-aV-VG4">
+                                    <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" useCurrentDate="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwl-aV-VG4">
                                         <rect key="frame" x="0.0" y="260" width="374" height="96"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="482190001.10789001">
-                                            <!--2016-04-12 21:40:01 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="482205600.10789001">
+                                            <!--2016-04-13 02:00:00 +0000-->
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-uk-Ss1">

@@ -36,7 +36,9 @@ class ScheduleViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             if snapshot.exists() {
                 if let arr = snapshot.value as? NSArray {
                     for (index, val) in arr.enumerate() {
-                        self.schedule[index] = val as! NSDictionary
+                        if !(val is NSNull) {
+                            self.schedule[index] = val as! NSDictionary
+                        }
                     }
                 }
                 else if let value = snapshot.value as? NSDictionary {
