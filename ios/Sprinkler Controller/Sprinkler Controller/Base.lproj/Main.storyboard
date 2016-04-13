@@ -607,7 +607,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="p70-Vt-5ZK">
-                                <rect key="frame" x="20" y="64" width="374" height="490"/>
+                                <rect key="frame" x="20" y="64" width="374" height="394"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fAo-M9-VdH">
                                         <rect key="frame" x="16" y="0.0" width="65.5" height="21"/>
@@ -616,9 +616,9 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GgS-tQ-bcz" userLabel="Program Picker">
-                                        <rect key="frame" x="0.0" y="21" width="374" height="128"/>
+                                        <rect key="frame" x="0.0" y="21" width="374" height="96"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="128" id="ZDe-9d-TO1"/>
+                                            <constraint firstAttribute="height" constant="96" id="ZDe-9d-TO1"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dataSource" destination="4b1-wR-Duy" id="BC7-4k-88n"/>
@@ -626,13 +626,13 @@
                                         </connections>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Day" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KbD-gh-dmi" userLabel="Day">
-                                        <rect key="frame" x="16" y="154" width="29.5" height="21"/>
+                                        <rect key="frame" x="16" y="122" width="29.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6ts-Ta-3m8" userLabel="Day Picker">
-                                        <rect key="frame" x="-54" y="175" width="454" height="128"/>
+                                        <rect key="frame" x="-54" y="143" width="454" height="96"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="128" id="Suk-Xc-s2s"/>
                                         </constraints>
@@ -647,19 +647,19 @@
                                         </connections>
                                     </pickerView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Time" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jPQ-yB-b86">
-                                        <rect key="frame" x="16" y="303" width="38" height="21"/>
+                                        <rect key="frame" x="16" y="239" width="38" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="15" translatesAutoresizingMaskIntoConstraints="NO" id="Fwl-aV-VG4">
-                                        <rect key="frame" x="0.0" y="324" width="374" height="128"/>
+                                        <rect key="frame" x="0.0" y="260" width="374" height="96"/>
                                         <date key="date" timeIntervalSinceReferenceDate="482190001.10789001">
                                             <!--2016-04-12 21:40:01 +0000-->
                                         </date>
                                     </datePicker>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="c0a-uk-Ss1">
-                                        <rect key="frame" x="172" y="460" width="30" height="30"/>
+                                        <rect key="frame" x="172" y="364" width="30" height="30"/>
                                         <state key="normal" title="Add"/>
                                         <connections>
                                             <action selector="addPressed:" destination="4b1-wR-Duy" eventType="primaryActionTriggered" id="f5T-gr-G6Y"/>
@@ -707,19 +707,38 @@
                                     </mask>
                                 </variation>
                             </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="NcJ-Uu-TRI">
+                                <rect key="frame" x="20" y="466" width="374" height="254"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="4b1-wR-Duy" id="fTL-UD-Bn0"/>
+                                    <outlet property="delegate" destination="4b1-wR-Duy" id="rWg-7g-w57"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="NcJ-Uu-TRI" firstAttribute="top" secondItem="p70-Vt-5ZK" secondAttribute="top" id="77i-Ex-jMe"/>
                             <constraint firstItem="p70-Vt-5ZK" firstAttribute="leading" secondItem="bzg-Fh-mbb" secondAttribute="leadingMargin" id="Iba-Vj-27v"/>
                             <constraint firstAttribute="trailingMargin" secondItem="p70-Vt-5ZK" secondAttribute="trailing" id="VEA-Qg-IkA"/>
+                            <constraint firstItem="YDj-Ch-0Wn" firstAttribute="top" secondItem="NcJ-Uu-TRI" secondAttribute="bottom" constant="16" id="W3g-jS-Hef"/>
+                            <constraint firstItem="NcJ-Uu-TRI" firstAttribute="top" secondItem="p70-Vt-5ZK" secondAttribute="bottom" constant="8" id="cuQ-9M-20N"/>
                             <constraint firstItem="p70-Vt-5ZK" firstAttribute="top" secondItem="SJa-zr-8Wy" secondAttribute="bottom" id="sGz-vd-zo7"/>
+                            <constraint firstItem="NcJ-Uu-TRI" firstAttribute="leading" secondItem="bzg-Fh-mbb" secondAttribute="leadingMargin" id="u09-mM-OYF"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="NcJ-Uu-TRI" secondAttribute="trailing" id="zVX-1n-6gk"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="77i-Ex-jMe"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Schedule" id="stY-hl-RVF"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="dayPicker" destination="6ts-Ta-3m8" id="ds1-PO-3pR"/>
                         <outlet property="programPicker" destination="GgS-tQ-bcz" id="Hat-GE-8Y3"/>
+                        <outlet property="scheduleTable" destination="NcJ-Uu-TRI" id="fyq-zZ-ZKm"/>
                         <outlet property="timePicker" destination="Fwl-aV-VG4" id="E5k-fR-Vuz"/>
                     </connections>
                 </viewController>
