@@ -31,11 +31,6 @@ module.exports = {
 			cb(snapshot.val());
 		});
 	},
-	lastTime: function(cb) {
-		root.child('history').orderByPriority().limitToFirst(1).once('child_added', function (snapshot) {
-			cb(snapshot.val().time);
-		});
-	},
 	config: function (cb) {
 		root.child('config').once('value', function (snapshot) {
 			cb(snapshot.val());

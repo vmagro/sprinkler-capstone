@@ -19,14 +19,14 @@ for (var i=0; i < 4; i++) {
 connector.location(function (loc) {
 	console.log('got location ' + JSON.stringify(loc));
 	setTimeout(function () {
+		console.log('fetching weather');
 		weather(loc).then(function (weather) {
-			connector.lastTime(function (lastTime) {
-				console.log(weather);
-				const precipProb = weather;
-				water.shouldWater(precipProb, lastTime).then(function(data) {
-					if (data.shouldWater)
-						water.start(data.programKey);
-				});
+			console.log('got weather');
+			console.log(weather);
+			const precipProb = weather;
+			water.shouldWater(precipProb).then(function(data) {
+				if (data.shouldWater)
+					water.start(data.programKey);
 			});
 		});
 	}, 100);

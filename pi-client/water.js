@@ -18,9 +18,13 @@ module.exports = {
 				setTimeout(avr.setZone.bind(null, localZone, false), startOffset + zoneDuration);
 				startOffset += zoneDuration;
 			}
+			setTimeout(function() {
+				console.log(chalk.green('Done with program "' + programKey + '"'));
+				connector.addHistoryEntry([1,2,3,4], 1000);
+			}, startOffset);
 		});
 	},
-	shouldWater: function (precipProb, lastTime) {
+	shouldWater: function (precipProb) {
 		var deferred = Q.defer();
 		connector.config(function(config) {
 			connector.schedule(moment().day(), function(scheduleToday) {
