@@ -23,9 +23,9 @@ class ViewController: UIViewController {
             let val = snapshot.value as! NSDictionary
             self.lastWatering.text = (val.objectForKey("timeString") as! String) //self.formatDate(val.objectForKey("time"))
             }, withCancelBlock: nil)
-        root?.childByAppendingPath("schedule").queryOrderedByPriority().queryLimitedToFirst(1).observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
-            self.nextWatering.text = (snapshot.value.objectForKey("timeString") as! String)
-            }, withCancelBlock: nil)
+//        root?.childByAppendingPath("schedule").queryOrderedByPriority().queryLimitedToFirst(1).observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
+//            self.nextWatering.text = (snapshot.value.objectForKey("timeString") as! String)
+//            }, withCancelBlock: nil)
         
         root?.childByAppendingPath("manual").observeEventType(.Value, withBlock: { (snapshot) in
             for (i, toggle) in self.manualToggles.enumerate() {
