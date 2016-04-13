@@ -42,9 +42,14 @@ module.exports = {
 		});
 	},
 	schedule: function (day, cb) {
-		root.child('schedule').once('value', function (snapshot) {
+		root.child('schedule').child(day).once('value', function (snapshot) {
 			const schedule = snapshot.val();
 			cb(schedule);
+		});
+	},
+	program: function (key, cb) {
+		root.child('programs').child(key).once('value', function (snapshot) {
+			cb(snapshot.val());
 		});
 	}
 };

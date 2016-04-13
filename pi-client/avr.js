@@ -3,8 +3,10 @@ const connector = require('./connector');
 
 module.exports = {
 	numZones: 4,
-	setZone: function setZone(zone, on) {
-		connector.setManual(zone, on ? "on" : "off");
+	setZone: function setZone(zone, on, fromManual) {
+		if (!fromManual) { //prevent infinite loop
+			connector.setManual(zone, on ? "on" : "off");
+		}
 		if (on)
 			console.log(chalk.green('Zone ' + zone + ' on'));
 		else
