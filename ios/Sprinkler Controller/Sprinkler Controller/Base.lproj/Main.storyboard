@@ -433,8 +433,8 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zUJ-Wk-uvS">
-                                                <rect key="frame" x="182" y="343" width="30" height="30"/>
-                                                <state key="normal" title="Add"/>
+                                                <rect key="frame" x="180" y="343" width="34" height="30"/>
+                                                <state key="normal" title="Save"/>
                                                 <connections>
                                                     <action selector="didClickAdd:" destination="fc5-Bf-21h" eventType="primaryActionTriggered" id="tGi-xs-WEZ"/>
                                                 </connections>
@@ -511,21 +511,43 @@
                                             <segue destination="4b1-wR-Duy" kind="show" id="UuP-be-W2D"/>
                                         </connections>
                                     </button>
+                                    <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="qBN-l1-0C0">
+                                        <rect key="frame" x="16" y="381" width="394" height="512"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="128" id="D29-fn-aZL"/>
+                                            <constraint firstAttribute="height" constant="512" id="t69-gm-d7W"/>
+                                        </constraints>
+                                        <variation key="default">
+                                            <mask key="constraints">
+                                                <exclude reference="D29-fn-aZL"/>
+                                            </mask>
+                                        </variation>
+                                        <connections>
+                                            <outlet property="dataSource" destination="fc5-Bf-21h" id="UBs-lo-btR"/>
+                                            <outlet property="delegate" destination="fc5-Bf-21h" id="OTX-yu-cs8"/>
+                                        </connections>
+                                    </tableView>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="qBN-l1-0C0" firstAttribute="leading" secondItem="JAG-XB-wYo" secondAttribute="leading" constant="16" id="7wt-DD-bn2"/>
                                     <constraint firstAttribute="bottom" secondItem="mZw-59-baS" secondAttribute="bottom" constant="319" id="80s-j9-y7c"/>
                                     <constraint firstItem="mZw-59-baS" firstAttribute="top" secondItem="JAG-XB-wYo" secondAttribute="top" id="LRy-Iw-VsU"/>
                                     <constraint firstItem="mZw-59-baS" firstAttribute="top" secondItem="wOK-UV-Ali" secondAttribute="bottom" constant="8" id="MJI-Lo-yq7"/>
                                     <constraint firstItem="mZw-59-baS" firstAttribute="width" secondItem="JAG-XB-wYo" secondAttribute="width" constant="-64" id="NFF-qv-pbF"/>
+                                    <constraint firstItem="qBN-l1-0C0" firstAttribute="top" secondItem="mZw-59-baS" secondAttribute="bottom" constant="8" id="NOH-gC-NIe"/>
                                     <constraint firstItem="mZw-59-baS" firstAttribute="leading" secondItem="JAG-XB-wYo" secondAttribute="leading" constant="16" id="PcD-sm-3u9"/>
                                     <constraint firstAttribute="bottom" secondItem="wOK-UV-Ali" secondAttribute="bottom" constant="16" id="Uqd-e6-oma"/>
+                                    <constraint firstAttribute="bottom" secondItem="qBN-l1-0C0" secondAttribute="bottom" id="cOE-LN-FYG"/>
                                     <constraint firstItem="wOK-UV-Ali" firstAttribute="top" secondItem="JAG-XB-wYo" secondAttribute="top" constant="8" id="cto-hn-iZe"/>
                                     <constraint firstAttribute="trailing" secondItem="wOK-UV-Ali" secondAttribute="trailing" constant="32" id="nuB-j8-1eC"/>
                                     <constraint firstAttribute="trailing" secondItem="mZw-59-baS" secondAttribute="trailing" constant="16" id="pA1-zx-Gxo"/>
+                                    <constraint firstAttribute="trailing" secondItem="qBN-l1-0C0" secondAttribute="trailing" constant="16" id="pRQ-hc-lQP"/>
                                     <constraint firstAttribute="bottom" secondItem="mZw-59-baS" secondAttribute="bottom" constant="16" id="rar-Y7-wHh"/>
                                 </constraints>
                                 <variation key="default">
                                     <mask key="constraints">
+                                        <exclude reference="80s-j9-y7c"/>
                                         <exclude reference="rar-Y7-wHh"/>
                                         <exclude reference="Uqd-e6-oma"/>
                                         <exclude reference="cto-hn-iZe"/>
@@ -557,6 +579,7 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="programName" destination="vxi-Sg-ko4" id="RnK-UY-dD6"/>
+                        <outlet property="programTable" destination="qBN-l1-0C0" id="LPL-9F-5Nk"/>
                         <outletCollection property="labels" destination="Ttz-V5-10R" collectionClass="NSMutableArray" id="rVK-zS-aBp"/>
                         <outletCollection property="labels" destination="nFu-tZ-ugw" collectionClass="NSMutableArray" id="SHQ-7g-VGD"/>
                         <outletCollection property="labels" destination="qLl-Gd-Kuo" collectionClass="NSMutableArray" id="FId-I2-SYW"/>
