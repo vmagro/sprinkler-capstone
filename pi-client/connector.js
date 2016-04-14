@@ -1,7 +1,6 @@
-'use strict';
-const moment = require('moment');
-const Firebase = require('firebase');
-const root = new Firebase('https://vivid-fire-6945.firebaseio.com/');
+var moment = require('moment');
+var Firebase = require('firebase');
+var root = new Firebase('https://vivid-fire-6945.firebaseio.com/');
 
 module.exports = {
 	onManualControl: function(cb) {

@@ -1,8 +1,8 @@
-const chalk = require('chalk');
-const moment = require('moment');
-const Q = require('q');
-const avr = require('./avr');
-const connector = require('./connector.js');
+var chalk = require('chalk');
+var moment = require('moment');
+var Q = require('q');
+var avr = require('./avr');
+var connector = require('./connector.js');
 
 // hold schedule entries here by schedule key from firebase and the last moment that it was executed
 var history = {};

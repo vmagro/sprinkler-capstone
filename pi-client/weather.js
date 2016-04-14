@@ -1,7 +1,7 @@
-const Forecast = require('forecast');
-const Q = require('q');
+var Forecast = require('forecast');
+var Q = require('q');
 
-const forecast = new Forecast({
+var forecast = new Forecast({
 	service: 'forecast.io',
 	key: 'f3f308c35f7867d468ac58443ef544be',
 	units: 'f', // Only the first letter is parsed 
@@ -19,7 +19,7 @@ module.exports = function weather(location) {
 			deferred.reject(err);
 			return;
 		}
-		const daily = weather.daily;
+		var daily = weather.daily;
 		var totalProbability = 0.0;
 		for (var i=0; i < daily.data.length; i++) {
 			totalProbability += daily.data[i].precipProbability;
