@@ -1,6 +1,7 @@
 DEVICE     = atmega328p
 CLOCK      = 9830400
-PROGRAMMER = -c avrispmkii -P usb
+#PROGRAMMER = -c avrispmkii -P usb
+PROGRAMMER = -c usbtiny -P usb
 OBJECTS    = main.o serial.o
 FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0xe0:m
 
@@ -23,7 +24,7 @@ FUSES      = -U hfuse:w:0xd9:m -U lfuse:w:0xe0:m
 # Tune the lines below only if you know what you are doing:
 
 AVRDUDE = avrdude $(PROGRAMMER) -p $(DEVICE)
-COMPILE = avr-gcc -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
+COMPILE = avr-gcc -std=c99 -Wall -Os -DF_CPU=$(CLOCK) -mmcu=$(DEVICE)
 
 # symbolic targets:
 all:	main.hex

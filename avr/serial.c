@@ -1,6 +1,6 @@
 #include <avr/io.h>
 
-#define FOSC 16000000 // Clock frequency
+#define FOSC 7372000 // Clock frequency
 #define BAUD 9600 // Baud rate used
 #define MYUBRR (FOSC/16/BAUD-1) // Value for UBRR0
 
