@@ -3,7 +3,8 @@
 
 void uart_init();
 void uart_send(char* str);
-char rx_char();
-void uart_recv(char* buf, int len);
+char message_available();
+void last_message(char* newBuf);
+void mark_as_read();
 
 #endif

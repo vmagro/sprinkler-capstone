@@ -46,8 +46,10 @@ int main(void) {
   char buf[3];
 
   while(1) {
+    uart_send("Waiting for data\r\n");
     PORTC |= (1 << PC0);
-    rx_char();
+    while (!message_available()) {}
+    mark_as_read();
     PORTC &= ~(1 << PC0);
     _delay_ms(200);
     /* uart_send("Waiting for data\n"); */
