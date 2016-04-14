@@ -21,6 +21,7 @@ void decode_zone_msg(char* msg, char* zone, char* on) {
 
 int main(void) {
   uart_init();
+  DDRC |= (1 << PC0);
   ZONE_DDR |= (0b1111 << ZONE_START);
 
   // cycle through turning on all zones on boot
@@ -33,8 +34,13 @@ int main(void) {
   char buf[3];
 
   while(1) {
-    uart_send("Hello\r\n");
+    PORTC |= (1 << PC0);
+    rx_char();
+    PORTC &= ~(1 << PC0);
+    _delay_ms(200);
+    /* uart_send("Waiting for data\n"); */
     /* uart_recv(buf, 3); */
+    /* uart_send("Got data\n"); */
     /* char zone, on; */
     /* decode_zone_msg(buf, &zone, &on); */
     /* if (zone != -1) { */
@@ -45,7 +51,6 @@ int main(void) {
     /*     ZONE_PORT &= ~(1 << (ZONE_START + zone)); */
     /*   } */
     /* } */
-    /* _delay_ms(500); */
   }
 
   return 0;
