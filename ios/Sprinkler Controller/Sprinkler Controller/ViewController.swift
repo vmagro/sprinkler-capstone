@@ -29,7 +29,8 @@ class ViewController: UIViewController {
         
         root?.childByAppendingPath("manual").observeEventType(.Value, withBlock: { (snapshot) in
             for (i, toggle) in self.manualToggles.enumerate() {
-                if ((snapshot.value[i] as! String) == "on") {
+                let arr = snapshot.value as! NSArray
+                if ((arr[i] as! String) == "on") {
                     toggle.on = true
                 } else {
                     toggle.on = false
