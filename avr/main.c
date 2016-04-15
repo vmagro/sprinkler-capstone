@@ -85,11 +85,11 @@ int main(void) {
 
 ISR(TIMER1_COMPA_vect) {
 #if DEBUG
-  if(MOIST_PINR & (1 << MOIST_PIN)) {
-    uart_send("T1\n");
-  } else {
-    uart_send("T0\n");
-  }
+  /* if(MOIST_PINR & (1 << MOIST_PIN)) { */
+  /*   uart_send("T1\n"); */
+  /* } else { */
+  /*   uart_send("T0\n"); */
+  /* } */
 #endif
   if(MOIST_PINR & (1 << MOIST_PIN)) {
     PORTC |= (1 << PC0);

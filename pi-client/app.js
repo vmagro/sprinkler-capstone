@@ -34,20 +34,22 @@ var loc = null;
 
 var lastButtonStates = [false, false, false, false];
 
-buttons(function (btn, val) {
-	console.log('toggling ' + btn + ' was ' + lastButtonStates[btn] + ' now ' + val);
-	avr.setZone(btn, !lastButtonStates[btn]);
-	lastButtonStates[btn] = val;
+buttons(function (btn) {
+	var oldState = lastButtonStates[btn];
+	var newState = !oldState;
+	console.log('toggling ' + btn + ' was ' + oldState + ' now ' + newState);
+	avr.setZone(btn, newState);
+	lastButtonStates[btn] = newState;
 });
 
 function check() {
 	weather(loc).then(function (weather) {
-		// var precipProb = weather;
-		// water.shouldWater(precipProb).then(function(data) {
-		// 	if (data.shouldWater)
-		// 		water.start(data.programKey);
-		// 	setTimeout(check, 100);
-		// });
+		var precipProb = weather;
+		water.shouldWater(precipProb).then(function(data) {
+			if (data.shouldWater)
+				water.start(data.programKey);
+			setTimeout(check, 100);
+		});
 	});
 }
 

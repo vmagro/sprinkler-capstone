@@ -2,20 +2,30 @@ var Q = require('q');
 var gpio = require('onoff').Gpio;
 
 // pi pin numbers associated with zone by index in array
-var pinNumbers = [23,24,10,25];
+var pinNumbers = [25,10,24,23];
 var pins = [];
 for (var i = 0; i < pinNumbers.length; i++) {
-	pins.push(new gpio(pinNumbers[i], 'in', 'falling'));
+	pins.push(new gpio(pinNumbers[i], 'in', 'both'));
 }
 
-function changeHandler(pin, cb) {
-	return function (err, value) {
-		cb(pin, value);
-	};
+var lastButtonStates = [1,1,1,1];
+
+function update(cb) {
+	for (var i=0; i<pins.length; i++) {
+		var on = pins[i].readSync();
+		if (!on) {
+			while (!pins[i].readSync()) {
+			}
+			if (lastButtonStates[i]) {
+				cb(i);
+			}
+			console.log('button ' + i + ' released');
+		}
+		lastButtonStates[i] = on;
+	}
+	setTimeout(update.bind(null, cb), 100);
 }
 
 module.exports = function (cb) {
-	for (var i=0; i < pins.length; i++) {
-		pins[i].watch(changeHandler(i, cb));
-	}
+	update(cb);
 };
