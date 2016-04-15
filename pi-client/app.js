@@ -36,27 +36,31 @@ var lastButtonStates = [false, false, false, false];
 
 function check() {
 	weather(loc).then(function (weather) {
-		var precipProb = weather;
-		water.shouldWater(precipProb).then(function(data) {
-			if (data.shouldWater)
-				water.start(data.programKey);
-			setTimeout(check, 100);
-		});
+		// var precipProb = weather;
+		// water.shouldWater(precipProb).then(function(data) {
+		// 	if (data.shouldWater)
+		// 		water.start(data.programKey);
+		// 	setTimeout(check, 100);
+		// });
 	});
 
 	// also check for button presses
 	buttons().then(function (buttons) {
+		console.log(buttons);
 		for (var i=0; i < buttons[i]; i++) {
 			if (buttons[i] === 0) {
 				if (!lastButtonStates[i]) {
 					// this is the first time we saw a push, let's act on it
 					avr.setZone(i, !currentZoneStates[i]); //flip zone state
+					console.log('pushed button ' + i);
 				}
 				lastButtonStates[i] = true;
 			} else {
 				lastButtonStates[i] = false;
 			}
 		}
+	}).catch(function(err) {
+		console.log(err);
 	});
 }
 

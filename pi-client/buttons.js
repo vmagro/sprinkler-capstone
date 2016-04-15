@@ -1,8 +1,14 @@
 var Q = require('q');
-var gpio = require("pi-gpio");
+var gpio = require('pi-gpio');
 
 // pi pin numbers associated with zone by index in array
-var pinNumbers = [1,2,3,4];
+var pinNumbers = [16,18,19,22];
+
+for (var i=0; i < pinNumbers.length; i++) {
+	gpio.open(pinNumbers[i], 'input', function (err) {
+								 console.log('opened pin ' + pinNumbers[i]);
+	});
+}
 
 function pinPromise(pin) {
 	var deferred = Q.defer();
