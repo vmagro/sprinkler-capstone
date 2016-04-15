@@ -7,7 +7,7 @@
 #define MYUBRR (FOSC/16/BAUD-1) // Value for UBRR0
 
 char buf[3];
-char bufIndex = 0;
+int bufIndex = 0;
 
 void uart_init() {
   DDRD &= ~(1 << DD0); //RX input
@@ -16,6 +16,8 @@ void uart_init() {
   UCSR0B |= (1 << TXEN0 | 1 << RXEN0 | 1 << RXCIE0); // Enable RX and TX and RX Interrupts
   UCSR0C = (3 << UCSZ00); // Async., no parity,
   // 1 stop bit, 8 data bits
+
+  sei();
 }
 
 void uart_send(char* str) {
@@ -35,13 +37,13 @@ void mark_as_read() {
 }
 
 char message_available() {
-  return bufIndex == 1;
+  return bufIndex == 3;
 }
 
 ISR(USART_RX_vect) {
   char in = UDR0;
   //start byte
-  if (in == 0xff) {
+  if (in == 0x42) {
     bufIndex = 0;
   }
   buf[bufIndex] = in;

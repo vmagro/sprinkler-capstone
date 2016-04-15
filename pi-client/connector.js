@@ -2,9 +2,21 @@ var moment = require('moment');
 var Firebase = require('firebase');
 var root = new Firebase('https://vivid-fire-6945.firebaseio.com/');
 
+root.child('.info/connected').on('value', function(connectedSnap) {
+	if (connectedSnap.val() === true) {
+		/* we're connected! */
+		console.log('FIREBASE CONNECTED');
+	} else {
+		/* we're disconnected! */
+		console.log('FIREBASE DISCONNECTED');
+	}
+});
+
 module.exports = {
 	onManualControl: function(cb) {
+		console.log('listening for manual controls');
 		root.child('manual').on('value', function (snapshot) {
+			console.log('manual update');
 			cb(snapshot.val());
 		});
 	},

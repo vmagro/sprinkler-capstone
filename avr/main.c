@@ -3,6 +3,8 @@
 #include <util/delay.h>
 #include "serial.h"
 
+#define DEBUG 1
+
 //Zones on PC1-4
 #define ZONE_DDR DDRC
 #define ZONE_PORT PORTC
@@ -11,14 +13,9 @@
 #define MOIST_PORT PORTD
 
 void decode_zone_msg(char* msg, char* zone, char* on) {
-  //check to make sure start byte is present
-  if (msg[0] != 0xff) {
-    *zone = -1;
-    *on = -1;
-    return;
-  }
-  *zone = msg[0];
-  *on = msg[1] == 0x01;
+  //ignore start byte, assuming it's already present due to the check in serial.c
+  *zone = msg[1];
+  *on = msg[2] == 0x01;
   return;
 }
 
@@ -35,27 +32,38 @@ int main(void) {
       _delay_ms(200);
       ZONE_PORT &= ~(1 << (ZONE_START + zone));
   }
- 
- //interrupt timer
- OCR1A = 0x8CA0; //count up to 36000
- TCCR1B |= (1<<WGM12); // mode 4, CTC on OCR1A
- TIMSK1 |= (1<<OCIE1A); //set interrupt on compare match
- TCCR1B |= (1<<CS12)|(1<<CS10); //set prescaler to 1024 and start the timer
- sei(); //enable interrupts
- 
+
   char buf[3];
 
   while(1) {
+#if DEBUG
     uart_send("Waiting for data\r\n");
-    PORTC |= (1 << PC0);
+#endif
+
+    //wait for a message to be available
     while (!message_available()) {}
+    char zone, on;
+    last_message(buf);
     mark_as_read();
-    PORTC &= ~(1 << PC0);
-    _delay_ms(200);
-    /* uart_send("Waiting for data\n"); */
-    /* uart_recv(buf, 3); */
-    /* uart_send("Got data\n"); */
-    /* char zone, on; */
+    decode_zone_msg(buf, &zone, &on);
+
+#if DEBUG
+    char str[16];
+    if (on) {
+      snprintf(str, 16, "Turning on %d\n", zone);
+    } else {
+      snprintf(str, 16, "Turning off %d\n", zone);
+    }
+    uart_send(str);
+#endif
+
+    if (on) {
+      ZONE_PORT |= (1 << (zone + ZONE_START));
+    } else {
+      ZONE_PORT &= ~(1 << (zone + ZONE_START));
+    }
+
+
     /* decode_zone_msg(buf, &zone, &on); */
     /* if (zone != -1) { */
     /*   // if message has a valid zone */

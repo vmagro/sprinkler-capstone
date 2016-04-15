@@ -3,19 +3,27 @@ var avr = require('./avr');
 var weather = require('./weather');
 var water = require('./water');
 var chalk = require('chalk');
+var async = require('async');
 
 // connector.addHistoryEntry([1,2], 1000);
 
 connector.onManualControl(function (zones) {
-	for (var i=0; i < zones.length; i++) {
-		// avr.setZone(i, zones[i] === 'on', true);
-	}
+	async.eachSeries([0,1,2,3], function (zone, cb) {
+		avr.setZone(zone, zones[zone] === 'on', true).then(cb);
+	});
 });
-avr.setZone(0, true);
 
-for (var i=0; i < 4; i++) {
-	avr.setZone(i, false);
+/*var on = true;
+function loop() {
+	avr.setZone(2, on);
+	on = !on;
+	setTimeout(loop, 1000);
 }
+loop();*/
+
+async.eachSeries([0,1,2,3], function iteratee(zone, callback) {
+	avr.setZone(zone, false).then(callback);
+});
 
 var loc = null;
 
@@ -25,7 +33,6 @@ function check() {
 		water.shouldWater(precipProb).then(function(data) {
 			if (data.shouldWater)
 				water.start(data.programKey);
-
 			setTimeout(check, 100);
 		});
 	});

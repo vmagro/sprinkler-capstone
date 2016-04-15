@@ -39,6 +39,7 @@ module.exports = {
 					if (scheduleToday.hasOwnProperty(key)) {
 						var start = scheduleToday[key].start;
 						start = moment().set({'hour': start / 60, 'minute': start % 60});
+						console.log('start at ' + start + ' current ' + moment());
 						if (moment().isSameOrAfter(start)) {
 							console.log('current time after schedule entry today');
 							if (!history[key]) {
@@ -47,7 +48,7 @@ module.exports = {
 								deferred.resolve({shouldWater: true, programKey: scheduleToday[key].program});
 								return;
 							} else {
-								console.log('have not executed this schedule yet this week');
+								console.log('checking if we have executed this schedule yet this week');
 								var nextWeek = history[key].add(1, 'w');
 								//if a week later, ok to water again
 								if (moment().isSameOrAfter(nextWeek)) {
