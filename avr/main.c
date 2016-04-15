@@ -23,6 +23,8 @@ void decode_zone_msg(char* msg, char* zone, char* on) {
   return;
 }
 
+char desiredZones = 0x00;
+
 void init_timer1(unsigned short m) {
   TCCR1B |= (1 << WGM12);
   TIMSK1 |= (1 << OCIE1A);
@@ -74,8 +76,10 @@ int main(void) {
 
     if (on) {
       ZONE_PORT |= (1 << (zone + ZONE_START));
+      desiredZones |= (1 << (zone + ZONE_START));
     } else {
       ZONE_PORT &= ~(1 << (zone + ZONE_START));
+      desiredZones &= ~(1 << (zone + ZONE_START));
     }
 
   }
@@ -93,8 +97,9 @@ ISR(TIMER1_COMPA_vect) {
 #endif
   if(MOIST_PINR & (1 << MOIST_PIN)) {
     PORTC |= (1 << PC0);
-    ZONE_PORT |= (0b1111 << ZONE_START);
+    ZONE_PORT &= ~(0b1111 << ZONE_START);
   } else {
     PORTC &= ~(1 << PC0);
+    ZONE_PORT |= (desiredZones);
   }
 }
