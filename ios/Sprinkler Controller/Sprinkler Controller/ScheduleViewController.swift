@@ -100,7 +100,7 @@ class ScheduleViewController: UIViewController, UIPickerViewDelegate, UIPickerVi
             if let entry = day.objectForKey(key) {
                 let program = entry.objectForKey("program") as! String
                 let startInt = Int(entry.objectForKey("start") as! NSNumber)
-                let start = String(startInt / 60) + ":" + String(startInt % 60)
+                let start = String(format: "%02d", startInt / 60) + ":" + String(format: "%02d", startInt % 60)
                 cell?.textLabel?.text = "Program " + program + " at " + start
             }
         }

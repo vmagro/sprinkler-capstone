@@ -40,7 +40,8 @@ module.exports = {
 						var start = scheduleToday[key].start;
 						start = moment().set({'hour': start / 60, 'minute': start % 60});
 						console.log('start at ' + start + ' current ' + moment());
-						if (moment().isSameOrAfter(start)) {
+						// make sure it's within 5 minutes of the start time for this program
+						if (moment().isSameOrAfter(start) && start.add(5, 'minutes').isSameOrAfter(moment())) {
 							console.log('current time after schedule entry today');
 							if (!history[key]) {
 								console.log('have not executed this schedule yet');

@@ -372,12 +372,6 @@
                                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="oer-gl-ucY" userLabel="Slider 1">
-                                                <rect key="frame" x="14" y="104" width="366" height="31"/>
-                                                <connections>
-                                                    <action selector="sliderChanged:" destination="fc5-Bf-21h" eventType="valueChanged" id="USw-zf-vHu"/>
-                                                </connections>
-                                            </slider>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Zone 2" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bDZ-He-9Z4">
                                                 <rect key="frame" x="8" y="142" width="51.5" height="21"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="17"/>
@@ -439,6 +433,12 @@
                                                     <action selector="didClickAdd:" destination="fc5-Bf-21h" eventType="primaryActionTriggered" id="tGi-xs-WEZ"/>
                                                 </connections>
                                             </button>
+                                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="15" minValue="0.0" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="oer-gl-ucY" userLabel="Slider 1">
+                                                <rect key="frame" x="14" y="104" width="366" height="31"/>
+                                                <connections>
+                                                    <action selector="sliderChanged:" destination="fc5-Bf-21h" eventType="valueChanged" id="USw-zf-vHu"/>
+                                                </connections>
+                                            </slider>
                                         </subviews>
                                         <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                         <constraints>
