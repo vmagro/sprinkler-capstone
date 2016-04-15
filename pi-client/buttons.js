@@ -14,8 +14,8 @@ function update(cb) {
 	for (var i=0; i<pins.length; i++) {
 		var on = pins[i].readSync();
 		if (!on) {
-			while (!pins[i].readSync()) {
-			}
+			console.log('waiting for button ' + i + ' to be released');
+			while (!pins[i].readSync()) {}
 			if (lastButtonStates[i]) {
 				cb(i);
 			}
