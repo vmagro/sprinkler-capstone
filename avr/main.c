@@ -9,8 +9,12 @@
 #define ZONE_DDR DDRC
 #define ZONE_PORT PORTC
 #define ZONE_START PC1
+
+//Moisture link on PD5
 #define MOIST_DDR DDRD
 #define MOIST_PORT PORTD
+#define MOIST_PINR PIND
+#define MOIST_PIN PD5
 
 void decode_zone_msg(char* msg, char* zone, char* on) {
   //ignore start byte, assuming it's already present due to the check in serial.c
@@ -19,18 +23,29 @@ void decode_zone_msg(char* msg, char* zone, char* on) {
   return;
 }
 
+void init_timer1(unsigned short m) {
+  TCCR1B |= (1 << WGM12);
+  TIMSK1 |= (1 << OCIE1A);
+  OCR1A = m;
+  TCCR1B |= (1 << CS12);
+}
+
 int main(void) {
   uart_init();
+  init_timer1(15625);
+
+  sei();
+
   DDRC |= (1 << PC0);
   ZONE_DDR |= (0b1111 << ZONE_START);
-  MOIST_DDR &= ~(1<<PD5); //PORTD pin 5 as input
-  MOIST_PORT |= (1<<PD5); //activate pull-ups in PORTD pin5?
-  
+  MOIST_DDR &= ~(1<<MOIST_PIN); //PORTD pin 5 as input
+  MOIST_PORT |= (1<<MOIST_PIN); //activate pull-ups in PORTD pin5?
+
   // cycle through turning on all zones on boot
   for (int zone=0; zone < 4; zone++) {
-      ZONE_PORT |= (1 << (ZONE_START + zone));
-      _delay_ms(200);
-      ZONE_PORT &= ~(1 << (ZONE_START + zone));
+    ZONE_PORT |= (1 << (ZONE_START + zone));
+    _delay_ms(200);
+    ZONE_PORT &= ~(1 << (ZONE_START + zone));
   }
 
   char buf[3];
@@ -63,26 +78,23 @@ int main(void) {
       ZONE_PORT &= ~(1 << (zone + ZONE_START));
     }
 
-
-    /* decode_zone_msg(buf, &zone, &on); */
-    /* if (zone != -1) { */
-    /*   // if message has a valid zone */
-    /*   if (on) { */
-    /*     ZONE_PORT |= (1 << (ZONE_START + zone)); */
-    /*   } else { */
-    /*     ZONE_PORT &= ~(1 << (ZONE_START + zone)); */
-    /*   } */
-    /* } */
   }
 
   return 0;
 }
 
-ISR (TIMER1_COMPA_vect){
-  if(PIND & (1<<PD5)){
-    ZONE_PORT &= ~(1<<PC1);
-    ZONE_PORT &= ~(1<<PC2);
-    ZONE_PORT &= ~(1<<PC3);
-    ZONE_PORT &= ~(1<<PC4);
+ISR(TIMER1_COMPA_vect) {
+#if DEBUG
+  if(MOIST_PINR & (1 << MOIST_PIN)) {
+    uart_send("T1\n");
+  } else {
+    uart_send("T0\n");
+  }
+#endif
+  if(MOIST_PINR & (1 << MOIST_PIN)) {
+    PORTC |= (1 << PC0);
+    ZONE_PORT |= (0b1111 << ZONE_START);
+  } else {
+    PORTC &= ~(1 << PC0);
   }
 }
