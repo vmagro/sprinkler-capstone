@@ -24,12 +24,12 @@ module.exports = {
 		root.child('manual/' + zone).set(val);
 	},
 	addHistoryEntry: function(zones, duration) {
-		root.child('history').push().set({
+		root.child('history').push().setWithPriority({
 			zones: zones,
 			time: new Date().getTime(),
 			timeString: moment(new Date()).format('dddd hA'),
 			duration: duration
-		});
+		}, Firebase.ServerValue.TIMESTAMP);
 	},
 	addScheduledEntry: function (time) {
 		root.child('schedule').push().setWithPriority({

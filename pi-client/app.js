@@ -46,8 +46,10 @@ function check() {
 	weather(loc).then(function (weather) {
 		var precipProb = weather;
 		water.shouldWater(precipProb).then(function(data) {
-			if (data.shouldWater)
+			if (data.shouldWater) {
 				water.start(data.programKey);
+				connector.addHistoryEntry([0,1,2,3], 1000);
+			}
 			setTimeout(check, 100);
 		});
 	});

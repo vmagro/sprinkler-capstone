@@ -19,7 +19,7 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         root = Firebase(url:"https://vivid-fire-6945.firebaseio.com/")
-        root?.childByAppendingPath("history").queryOrderedByPriority().queryLimitedToFirst(1).observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
+        root?.childByAppendingPath("history").queryOrderedByPriority().queryLimitedToLast(1).observeSingleEventOfType(.ChildAdded, withBlock: { (snapshot) in
             let val = snapshot.value as! NSDictionary
             self.lastWatering.text = (val.objectForKey("timeString") as! String) //self.formatDate(val.objectForKey("time"))
             }, withCancelBlock: nil)
