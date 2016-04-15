@@ -55,30 +55,13 @@
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Next Scheduled" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DPz-wO-JiU">
-                                        <rect key="frame" x="20" y="106" width="110" height="19"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="16"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="4PM Saturday April 9th" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fmi-Ja-uqI">
-                                        <rect key="frame" x="28" y="133" width="149.5" height="18"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="15"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.90196079019999997" green="0.90196079019999997" blue="0.90196079019999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
-                                    <constraint firstItem="DPz-wO-JiU" firstAttribute="top" secondItem="Fmi-Ja-uqI" secondAttribute="bottom" constant="8" id="2HF-Ad-PmR"/>
                                     <constraint firstItem="5Ay-OW-0gK" firstAttribute="top" secondItem="BK1-Ts-uZg" secondAttribute="bottom" constant="8" id="3JX-Zq-MjP"/>
-                                    <constraint firstItem="DPz-wO-JiU" firstAttribute="leading" secondItem="BK1-Ts-uZg" secondAttribute="leading" id="Eec-te-LYx"/>
                                     <constraint firstItem="BK1-Ts-uZg" firstAttribute="leading" secondItem="z6k-oI-apI" secondAttribute="leading" id="GbZ-XJ-qYD"/>
-                                    <constraint firstItem="Fmi-Ja-uqI" firstAttribute="top" secondItem="DPz-wO-JiU" secondAttribute="bottom" constant="8" id="Np6-9d-SCa"/>
-                                    <constraint firstItem="DPz-wO-JiU" firstAttribute="top" secondItem="5Ay-OW-0gK" secondAttribute="bottom" constant="8" id="dO3-8H-ZHw"/>
                                     <constraint firstAttribute="height" constant="200" id="hU9-Kd-8ob"/>
                                     <constraint firstItem="z6k-oI-apI" firstAttribute="top" secondItem="3cw-jZ-VMq" secondAttribute="top" constant="16" id="l8g-SD-Psc"/>
-                                    <constraint firstItem="Fmi-Ja-uqI" firstAttribute="leading" secondItem="DPz-wO-JiU" secondAttribute="leading" constant="8" id="pwA-R5-mIi"/>
                                     <constraint firstItem="z6k-oI-apI" firstAttribute="leading" secondItem="3cw-jZ-VMq" secondAttribute="leading" constant="20" id="qd4-6a-QGc"/>
                                     <constraint firstItem="5Ay-OW-0gK" firstAttribute="leading" secondItem="BK1-Ts-uZg" secondAttribute="leading" constant="8" id="tQ8-fx-fXc"/>
                                     <constraint firstItem="BK1-Ts-uZg" firstAttribute="top" secondItem="z6k-oI-apI" secondAttribute="bottom" constant="8" id="vum-J3-uHy"/>
@@ -88,11 +71,6 @@
                                         <integer key="value" value="5"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <variation key="default">
-                                    <mask key="constraints">
-                                        <exclude reference="2HF-Ad-PmR"/>
-                                    </mask>
-                                </variation>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xUA-8v-abj">
                                 <rect key="frame" x="40" y="312" width="334" height="211"/>
@@ -219,7 +197,6 @@
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
                     <connections>
                         <outlet property="lastWatering" destination="5Ay-OW-0gK" id="zzn-ax-oD6"/>
-                        <outlet property="nextWatering" destination="Fmi-Ja-uqI" id="CFF-i2-eH0"/>
                         <outletCollection property="manualToggles" destination="6oV-ZW-Q0g" collectionClass="NSMutableArray" id="R1C-Vk-FeT"/>
                         <outletCollection property="manualToggles" destination="1nT-75-oDa" collectionClass="NSMutableArray" id="uMr-08-G5h"/>
                         <outletCollection property="manualToggles" destination="FZz-Gv-gdY" collectionClass="NSMutableArray" id="cgi-5O-h65"/>

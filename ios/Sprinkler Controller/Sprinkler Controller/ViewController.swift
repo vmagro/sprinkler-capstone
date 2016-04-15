@@ -12,7 +12,7 @@ class ViewController: UIViewController {
     
     var root: Firebase?
     @IBOutlet weak var lastWatering: UILabel!
-    @IBOutlet weak var nextWatering: UILabel!
+//    @IBOutlet weak var nextWatering: UILabel!
     @IBOutlet var manualToggles: [UISwitch]!
 
     override func viewDidLoad() {
