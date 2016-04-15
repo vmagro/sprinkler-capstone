@@ -1,31 +1,21 @@
 var Q = require('q');
-var gpio = require('pi-gpio');
+var gpio = require('onoff').Gpio;
 
 // pi pin numbers associated with zone by index in array
-var pinNumbers = [16,18,19,22];
-
-for (var i=0; i < pinNumbers.length; i++) {
-	gpio.open(pinNumbers[i], 'input', function (err) {
-								 console.log('opened pin ' + pinNumbers[i]);
-	});
+var pinNumbers = [23,24,10,25];
+var pins = [];
+for (var i = 0; i < pinNumbers.length; i++) {
+	pins.push(new gpio(pinNumbers[i], 'in', 'falling'));
 }
 
-function pinPromise(pin) {
-	var deferred = Q.defer();
-	gpio.read(pin, function (err, val) {
-		if (err) {
-			deferred.reject(err);
-		} else {
-			deferred.resolve(val);
-		}
-	});
-	return deferred.promise;
+function changeHandler(pin, cb) {
+	return function (err, value) {
+		cb(pin, value);
+	};
 }
 
-module.exports = function () {
-	var promises = [];
-	for (var i=0; i < pinNumbers.length; i++) {
-		promises.push(pinPromise(pinNumbers[i]));
+module.exports = function (cb) {
+	for (var i=0; i < pins.length; i++) {
+		pins[i].watch(changeHandler(i, cb));
 	}
-	return Q.all(promises);
 };
