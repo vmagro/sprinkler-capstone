@@ -6,9 +6,6 @@ var buttons = require('./buttons');
 var chalk = require('chalk');
 var async = require('async');
 
-// connector.addHistoryEntry([1,2], 1000);
-
-
 var currentZoneStates = [false, false, false, false];
 
 avr.init(function() {
@@ -19,14 +16,6 @@ avr.init(function() {
 			currentZoneStates[zone] = zones[zone] === 'on';
 		});
 	});
-
-	/*var on = true;
-		function loop() {
-		avr.setZone(2, on);
-		on = !on;
-		setTimeout(loop, 1000);
-		}
-		loop();*/
 
 	async.eachSeries([0,1,2,3], function iteratee(zone, callback) {
 		avr.setZone(zone, false).then(callback);
